@@ -92,19 +92,7 @@ users[3].Medicines.Add(soldMedicines[7]);
 users[4].Medicines.Add(soldMedicines[8]);
 users[4].Medicines.Add(soldMedicines[9]);
 
-//FileHelper<Pharmacy>.WriteInFile(FILE_TYPES.Pharmacies, pharmacy, false);
-//FileHelper<Medicine>.WriteInFile(FILE_TYPES.Medicines, medicines, false);
-//FileHelper<SoldMedicine>.WriteInFile(FILE_TYPES.SoldMedicines, soldMedicines, false);
-//FileHelper<User>.WriteInFile(FILE_TYPES.Users, users, false);
 await JSONFileHelper<User>.WriteInFileAsync(FILE_TYPES.Users, users);
-
-//FileHelper<Pharmacy>.ReadFromFile(FILE_TYPES.Pharmacies);
-//Console.WriteLine();
-//FileHelper<Medicine>.ReadFromFile(FILE_TYPES.Medicines);
-//Console.WriteLine();
-//FileHelper<SoldMedicine>.ReadFromFile(FILE_TYPES.SoldMedicines);
-//Console.WriteLine();
-//FileHelper<User>.ReadFromFile(FILE_TYPES.Users);
 
 bool isOver = false;
 
