@@ -106,9 +106,40 @@ await JSONFileHelper<User>.WriteInFileAsync(FILE_TYPES.Users, users);
 //Console.WriteLine();
 //FileHelper<User>.ReadFromFile(FILE_TYPES.Users);
 
-var deserializedUsers = await JSONFileHelper<User>.ReadFromFileAsync(FILE_TYPES.Users);
+bool isOver = false;
 
-foreach (var du in deserializedUsers.ToList())
+do
 {
-    Console.WriteLine(du.WriteInConsole());
+    Console.WriteLine($"1. Show Medicines\n" +
+                  $"2. Exit");
+    int.TryParse(Console.ReadLine(), out int choice);
+
+    switch (choice)
+    {
+        case 1:
+            var deserializedUsers = await JSONFileHelper<User>.ReadFromFileAsync(FILE_TYPES.Users);
+
+            foreach (var du in deserializedUsers.ToList())
+            {
+                Console.WriteLine(du.WriteInConsole());
+            }
+            continue;
+        case 2:
+            Console.WriteLine("Application has been successfully terminated!");
+            Environment.Exit(555);
+            continue;
+    }
+
+    Console.WriteLine("want to continue? (y/n)");
+    char.TryParse(Console.ReadLine(), out char answer);
+
+    if (answer == 'y')
+    {
+        isOver = false;
+    }
+    else
+    {
+        isOver = true;
+    }
 }
+while (!isOver);
